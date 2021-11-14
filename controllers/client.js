@@ -1,6 +1,6 @@
+const Client = require("../models/client");
+
 exports.getClients = (req, res, next) => {
-  const num = 2 + 2;
-  console.log(num);
   res.status(200).json({
     client: [
       {
@@ -26,7 +26,20 @@ exports.postClients = (req, res, next) => {
   const dayOfWeek = req.body.dayOfWeek;
   const timeOfDay = req.body.timeOfDay;
   const bidValue = req.body.bidValue;
-
+  Client.create({
+    firstName: firstName,
+    lastName: lastName,
+    addressCity: addressCity,
+    addressStreet: addressStreet,
+    addressState: addressState,
+    phoneNumber: phoneNumber,
+    email: email,
+    onBoardDate: onBoardDate,
+    frequency: frequency,
+    dayOfWeek: dayOfWeek,
+    timeOfDay: timeOfDay,
+    bidValue: bidValue,
+  });
   res.status(201).json({
     message: "Client Added Successfully",
     post: {
